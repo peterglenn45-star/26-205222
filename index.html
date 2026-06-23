@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<div id="welcome-popup" class="popup">
+    <div class="popup-content">
+        <h2>🎮 Welcome to Tric's Gaming Lounge</h2>
+        <p>Tournament is beginning on the 15th of October</p>
+        <p>Registration is Ongoing!!!</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</div>
 <header>
     <h1> Tric's Gaming Lounge</h1>
 
@@ -140,5 +147,58 @@
     <p>&copy; 2026 Glenn's Gaming Lounge</p>
 </footer>
 
+<section>
+    <h2>Registration Form</h2>
+
+    <form>
+
+        <label>Name:</label><br>
+        <input type="text" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email"
+               placeholder="cindy@gmail.com"
+               required><br><br>
+
+        <label>Phone Number:</label><br>
+        <input type="tel" required><br><br>
+
+        <label>Gender:</label><br>
+
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+</section>
+<script>
+    
+    window.onload = function () {
+        document.getElementById("welcome-popup").style.display = "flex";
+    };
+
+    
+    function closePopup() {
+        document.getElementById("welcome-popup").style.display = "none";
+    }
+</script>
+
+<script>
+document.querySelector("form").onsubmit = function(e) {
+    let name = document.querySelector('input[type="text"]').value;
+    let email = document.querySelector('input[type="email"]').value;
+    let phone = document.querySelector('input[type="tel"]').value;
+
+    if (name == "" || email == "" || phone == "") {
+        alert("Please fill in all fields");
+        e.preventDefault(); // stop submission
+    } else {
+        alert("Form submitted successfully 🎮");
+    }
+};
+</script>
 </body>
 </html>
